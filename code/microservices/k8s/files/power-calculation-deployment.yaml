@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: power-calculation-deploy
+  namespace: powerplantcodingchallenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: power-calculation
+  template:
+    metadata:
+      labels:
+        app: power-calculation
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "power-calculation"
+        dapr.io/app-port: "80"
+        dapr.io/enable-api-logging: "true"  
+    spec:
+      containers:
+        - name: power-calculation
+          image: matheus06/powercalculation:latest
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pppc-app-power-calculation
+  namespace: powerplantcodingchallenge
+spec:
+  type: ClusterIP
+  selector:
+    app: power-calculation
+  ports:
+  - name: power-calculation
+    protocol: TCP
+    port: 80
+    targetPort: 80

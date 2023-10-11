@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4ACBFA30-8F3D-4F74-8E02-51E24AC6FACE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BE45630D-3617-44BE-82D2-3AD98A1EFBC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.PowerCalculation", "microservice.powercalculation\src\Microservice.PowerCalculation\Microservice.PowerCalculation.csproj", "{68D58837-BFD2-427B-BDB8-14B4BB2742C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.PowerCalculation.Test", "microservice.powercalculation\test\Microservice.PowerCalculation.Test\Microservice.PowerCalculation.Test.csproj", "{DE4D164C-B512-4B5B-875F-CAE259D7CD17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform", "platform\src\Platform\Platform.csproj", "{78EEECEA-3833-4EA0-BE04-46AB6FA49B0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice.ProductionPlanCalculator", "microservice.productionplancalculator\src\Microservice.ProductionPlanCalculator\Microservice.ProductionPlanCalculator.csproj", "{62B5B981-A602-41B0-94B5-B77755D1E520}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68D58837-BFD2-427B-BDB8-14B4BB2742C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D58837-BFD2-427B-BDB8-14B4BB2742C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D58837-BFD2-427B-BDB8-14B4BB2742C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D58837-BFD2-427B-BDB8-14B4BB2742C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4D164C-B512-4B5B-875F-CAE259D7CD17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4D164C-B512-4B5B-875F-CAE259D7CD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4D164C-B512-4B5B-875F-CAE259D7CD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4D164C-B512-4B5B-875F-CAE259D7CD17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78EEECEA-3833-4EA0-BE04-46AB6FA49B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78EEECEA-3833-4EA0-BE04-46AB6FA49B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78EEECEA-3833-4EA0-BE04-46AB6FA49B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78EEECEA-3833-4EA0-BE04-46AB6FA49B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B5B981-A602-41B0-94B5-B77755D1E520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B5B981-A602-41B0-94B5-B77755D1E520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B5B981-A602-41B0-94B5-B77755D1E520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B5B981-A602-41B0-94B5-B77755D1E520}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{68D58837-BFD2-427B-BDB8-14B4BB2742C8} = {4ACBFA30-8F3D-4F74-8E02-51E24AC6FACE}
+		{DE4D164C-B512-4B5B-875F-CAE259D7CD17} = {BE45630D-3617-44BE-82D2-3AD98A1EFBC9}
+		{62B5B981-A602-41B0-94B5-B77755D1E520} = {4ACBFA30-8F3D-4F74-8E02-51E24AC6FACE}
+	EndGlobalSection
+EndGlobal

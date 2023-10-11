@@ -1,0 +1,85 @@
+version: '3.4'
+    
+services:
+
+  power-calculation:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8888:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=docker
+    depends_on:
+      - redis
+      - placement
+    networks:
+      - dapr-network
+
+  power-calculation-dapr:
+    image: "daprio/daprd:edge"
+    command: ["./daprd",
+      "-app-id", "power-calculation",
+      "--app-port", "80",
+      "-placement-host-address", "placement:50006",
+      "-components-path", "/components/docker-compose"]
+    volumes:
+      - "./components/:/components"
+    depends_on:
+      - power-calculation
+    network_mode: "service:power-calculation"
+
+  production-plan-calculator:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.ppc
+    ports:
+      - 8040:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=docker
+    depends_on:
+      - redis
+      - placement
+    networks:
+      - dapr-network
+
+  production-plan-calculator-dapr:
+    image: "daprio/daprd:edge"
+    command: ["./daprd",
+      "-app-id", "production-plan-calculator",
+      "--app-port", "80",
+      "-placement-host-address", "placement:50006",
+      "-components-path", "/components/docker-compose"]
+    volumes:
+      - "./components/:/components"
+    depends_on:
+      - production-plan-calculator
+    network_mode: "service:production-plan-calculator"
+
+
+  ############################
+  # Dapr placement service
+  ############################
+  placement:
+    image: "daprio/dapr"
+    command: ["./placement", "-port", "50006"]
+    ports:
+      - "50006:50006"
+    networks:
+      - dapr-network
+
+  ############################
+  # Redis state store
+  ############################
+  redis:
+    image: "redis:alpine"
+    hostname: redisstate
+    ports:
+      - "6363:6379"
+    networks:
+      - dapr-network
+  
+networks:
+  dapr-network:

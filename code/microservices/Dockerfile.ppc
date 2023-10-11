@@ -1,0 +1,20 @@
+ARG OFFICIAL_NUGET_SOURCE_REPOSITORY=https://api.nuget.org/v3/index.json
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+ARG OFFICIAL_NUGET_SOURCE_REPOSITORY
+
+WORKDIR /src
+COPY ["microservice.productionplancalculator/src/Microservice.ProductionPlanCalculator/Microservice.ProductionPlanCalculator.csproj", "microservice.productionplancalculator/src/Microservice.ProductionPlanCalculator/"]
+COPY ["platform/src/Platform/Platform.csproj", "platform/src/Platform/Platform.csproj"]
+RUN dotnet restore "microservice.productionplancalculator/src/Microservice.ProductionPlanCalculator/Microservice.ProductionPlanCalculator.csproj"
+COPY . .
+WORKDIR "/src/microservice.productionplancalculator/src/Microservice.ProductionPlanCalculator"
+RUN dotnet build "Microservice.ProductionPlanCalculator.csproj" -c Release -o /app/build
+
+FROM build-env AS publish
+RUN dotnet publish "Microservice.ProductionPlanCalculator.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Microservice.ProductionPlanCalculator.dll"]
