@@ -120,7 +120,7 @@ Add localhost to hosts file
 
 ## Async Swagger Endpoints
 
-Those endpoints functionalities are not finished, is to demonstrate how to use long run operations by publishing message to a different service using `Dapr`:
+Those endpoints functionalities are not finished, is a simple long running operations scenario by publishing messages to a different service using `Dapr`:
 
 ![swagger](/code/docs/swagger.png)
 
