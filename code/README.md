@@ -1,16 +1,16 @@
 # Power Plant Calculation Project
 
-* [Microservice PowerCalculation](/powerplant-coding-challenge/code/microservices/microservice.powercalculation/README.md)
+* [Microservice PowerCalculation](/code/microservices/microservice.powercalculation)
 
 ## Architecture
 
 Local:
 
-![architecture-local](/powerplant-coding-challenge/code/docs/arch-local.png)
+![architecture-local](/code/docs/arch-local.png)
 
 K8s:
 
-![architecture-k8s](/powerplant-coding-challenge/code/docs/arch-k8s.png)
+![architecture-k8s](/code/docs/arch-k8s.png)
 
 ## How To Run
 
@@ -48,7 +48,7 @@ K8s:
 
 Add `127.0.0.1 localdev-tls.me` to your `C:\Windows\System32\drivers\etc\hosts` file
 
-![hosts](/powerplant-coding-challenge/code/docs/hosts.png)
+![hosts](/docs/hosts.png)
 
 Install ngnix
 
@@ -122,7 +122,7 @@ Add localhost to hosts file
 
 Those endpoints functionalities are not finished, is to demonstrate how to use long run operations by publishing message to a different service using `Dapr`:
 
-![swagger](/powerplant-coding-challenge/code/docs/swagger.png)
+![swagger](/code/docs/swagger.png)
 
 You can use the `/productionplan/asyncCalculation` to tigger the event and check `microservices-power-calculation` log:
 
