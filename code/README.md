@@ -48,7 +48,7 @@ K8s:
 
 Add `127.0.0.1 localdev-tls.me` to your `C:\Windows\System32\drivers\etc\hosts` file
 
-![hosts](/docs/hosts.png)
+![hosts](/code/docs/hosts.png)
 
 Install ngnix
 
